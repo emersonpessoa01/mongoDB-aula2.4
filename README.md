@@ -2,7 +2,7 @@
 - Criação de rota student<br>
 - Conexão com MongoDB Atlas<br>
 - Criação de variáveis de ambiente<br>
-- Criação de variáveis de ambiente<br>
+- Criação de controller<br>
 - Criado rotas get, post, delete e patch
 
 `-npm init -y`<br>
