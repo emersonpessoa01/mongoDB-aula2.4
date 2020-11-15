@@ -46,7 +46,7 @@ const studentSchema = mongoose.Schema({
   },
   lastModified: {
     type: Date,
-    default: Date.now,
+    date: display,
   },
 });
 
