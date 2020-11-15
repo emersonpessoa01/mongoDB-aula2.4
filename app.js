@@ -1,6 +1,9 @@
 import express from 'express'
 import mongoose from "mongoose";
 import { studentRouter } from "./routes/studentRouter.js";
+import swaggerUi from "swagger-ui-express"
+import { swaggerDocument} from "./docs.js"
+
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -26,6 +29,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use("/student", studentRouter);
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(process.env.PORT || 8080, () => {
   console.log("Fala Dev -- API STARTED");
