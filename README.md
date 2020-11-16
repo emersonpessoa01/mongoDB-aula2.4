@@ -8,6 +8,7 @@
 
 `-npm init -y`<br>
 `-npm install express nodemon mongoose dotenv`<br>
+`-npm install mongoose-date-format --save`<br>
 
 ### Para startar a aplicação:
 `-npm start`
