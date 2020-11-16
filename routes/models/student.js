@@ -1,5 +1,6 @@
 //responsavel por chamar o Banco de Dados
 import mongoose from "mongoose";
+import mongooseDateFormat from "mongoose-date-format";
 
 const leftPad = (value, count = 2, char = "0") => {
   let stringValue = value.toString();
@@ -46,10 +47,10 @@ const studentSchema = mongoose.Schema({
   },
   lastModified: {
     type: Date,
-    date: display,
+    default: new Date,
   },
 });
 
 const studentModel = mongoose.model("student", studentSchema, "student"); //para criar student no singular
-
+studentSchema.plugin(mongooseDateFormat)
 export { studentModel };
