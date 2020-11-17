@@ -1,6 +1,7 @@
 //responsavel por chamar o Banco de Dados
-import mongoose from "mongoose";
+import mongooseDateFormat from "mongoose-date-format";
 
+export default(mongoose)=>{ 
 const studentSchema = mongoose.Schema({
   name: {
     type: String,
@@ -29,5 +30,6 @@ const studentSchema = mongoose.Schema({
 });
 
 const studentModel = mongoose.model("student", studentSchema, "student"); //para criar student no singular
-
-export { studentModel };
+studentSchema.plugin(mongooseDateFormat)
+return studentModel;
+}
