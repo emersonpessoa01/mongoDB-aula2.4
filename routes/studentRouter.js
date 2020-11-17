@@ -1,6 +1,6 @@
 //interface para o controller,sendo que o mesmo faz tratamento de persistenca de dados
 import express from "express";
-import { studentModel } from "./models/student.js";
+import { studentModel } from "../models/student.js";
 
 const app = express();
 
