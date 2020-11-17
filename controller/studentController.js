@@ -6,11 +6,12 @@ const Student = db.student;
 
 //função create(metodo post) do CRUD
 const create = async (req, res) => {
+  const {name, subject, type,value} = req.body
   const student = new Student({
-    name: req.body.name,
-    subject: req.body.subject,
-    type: req.body.type,
-    value: req.body.value,
+    name,
+    subject,
+    type,
+    value,
   });
 
   try {
