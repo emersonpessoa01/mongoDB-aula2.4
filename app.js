@@ -1,20 +1,12 @@
-import express from 'express'
-import mongoose from "mongoose";
-import { studentRouter } from "./routes/studentRouter.js";
-import swaggerUi from "swagger-ui-express"
-import { swaggerDocument} from "./docs.js"
-
-import dotenv from 'dotenv';
-dotenv.config();
-
-//criando variaveis de ambiente
-// process.env.USER_DB = "emersonpessoa"
+import express from "express";
+import { podcastRouter } from "./routes/podcastRouter.js";
+import { db } from "./models/index.js";
 
 //Conexao com o MongoDB
 (async () => {
   try {
-    await mongoose.connect(
-      `mongodb+srv://${process.env.USERDB}:${process.env.PWDDB}@cluster0.cginj.mongodb.net/grades?retryWrites=true&w=majority`,
+    await db.mongoose.connect(
+      db.url,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -28,8 +20,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use("/student", studentRouter);
-app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/podcast", podcastRouter);
 
 app.listen(process.env.PORT || 8080, () => {
   console.log("Fala Dev -- API STARTED");
